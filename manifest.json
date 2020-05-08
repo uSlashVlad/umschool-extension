@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Umschool extension",
+  "version": "1.0.0",
+  "description": "Small script for Umschool website",
+  "icons": {
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [ "*://umschool.net/*" ],
+      "js": [ "injected.js" ],
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": [
+    "*://umschool.net/*",
+    "storage",
+    "activeTab"
+  ]
+}
