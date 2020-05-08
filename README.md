@@ -2,8 +2,9 @@
 Простое расширение для сайта https://umschool.net/, которое позволяет смотреть вебинары через **YouTube** вместо кривого встроенного плеера, а также изменяет некоторые элементы интерфейса для более приятного и удобного пользования сайтом
 
 # Как установить?
-1) Можно установить версию для браузеров [Firefox]('https://addons.mozilla.org/en-US/firefox/addon/umschool-extension/') и для [Chrome]('https://chrome.google.com/webstore/detail/umschool-extension/ifimfjphdjjdnljjennobooddcfjaddd')
-2) `git clone https://github.com/uSlashVlad/umschool-extension.git` в нужной директории и установить в браузер как распакованное расширение
+Можно установить версию для браузеров [Firefox](https://addons.mozilla.org/en-US/firefox/addon/umschool-extension/) и для [Chrome](https://chrome.google.com/webstore/detail/umschool-extension/ifimfjphdjjdnljjennobooddcfjaddd)
+
+или `git clone https://github.com/uSlashVlad/umschool-extension.git` в нужной директории и установить в браузер как распакованное расширение
 
 # Настройка
 Расширение имеет 3 настройки:
