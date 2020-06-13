@@ -37,7 +37,7 @@ let styles = ''; // общая переменная для стилей
 
 
 // блок кода для страницы веба
-if (url[1] === 'mastergroup' && url[2] === 'lessons' && (url[4] === '' || url[4] == '#')) {
+if ((url[1] === 'mastergroup' || url[1] === 'course') && url[2] === 'lessons' && (url[4] === '' || url[4] == '#')) {
     let elem = document.body.getElementsByClassName('preview-title')[0];
     if (!elem) elem = document.body.getElementsByClassName('date-container')[0];
     if (elem) {
@@ -97,7 +97,7 @@ else if (url[1] === 'core' && url[2] === 'profile' && url[3] === 'edit') // бл
         remtoolbar_toggler.onclick = () => remtoolbar_toggle();
     }
 }
-else if (((url[1] === 'mastergroup' && url[2] === 'lessons' && url[4] === 'homework') |
+else if ((((url[1] === 'mastergroup' || url[1] === 'course') && url[2] === 'lessons' && url[4] === 'homework') |
     (url[1] == 'homework' & url[2] == 'submissions')) & experiment) {
     styles += hm_my_style;
 }
@@ -157,7 +157,9 @@ if (rem_toolbars) {
 // изменение отображения уровней
 if (experiment) {
     let xp_ind = document.body.getElementsByClassName('nav-level')[0];
-    let points = Number(xp_ind.innerHTML.slice(0, -2));
+    // let points = Number(xp_ind.innerHTML.slice(0, -2));
+    let points = xp_ind.innerHTML.split('(')[1].slice(0, -3);
+    let status = xp_ind.innerHTML.split('(')[0].slice(0, -1);
     if (points != 0) {
         let b = xp_levels[0];
         let i = 0;
@@ -166,7 +168,7 @@ if (experiment) {
             b = xp_levels[i + 1];
             i++;
         }
-        xp_ind.innerHTML = `${points}XP [${b - points}]`;
+        xp_ind.innerHTML = `${status} (${points}XP) [${b - points}]`;
     }
 }
 
