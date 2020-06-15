@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Umschool extension",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Small script for Umschool website",
   "icons": {
     "32": "icons/32.png",

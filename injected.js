@@ -4,7 +4,6 @@ url = url.split('//')[1].split('/');
 
 // для редактирования страницы
 const button_main_style = '.yt_button_script {background-color: #be2413; border: none; border-radius: 20px; margin-left: 10px; color: white; padding: 5px 10.5px; margin-top: 7.5px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; font-weight: bold;} .yt_button_script:hover {background-color: #df3c2a;} .yt_button_script:active {background-color: #d96154;}';
-const button_down_style = '.yt_button_down_script {background-color: #21c809; border: none; border-radius: 20px; color: white; padding: 5px 10.5px; margin-top: 7.5px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; font-weight: bold;} .yt_button_down_script:hover {background-color: #4de038;} .yt_button_down_script:active {background-color: #8edd83;}';
 const bear_image_new_src = 'https://i.ibb.co/G089qYZ/bear-icon.png';
 const hm_my_style = `hr {display: none} .exercise-item {background-color: #f7f6f6; padding: 15px; /*border: 0.5px solid #E6E6E6;*/ border-radius: 20px;}
     .float-right {float: none !important}
@@ -137,10 +136,22 @@ else if (url[1] === 'course') {
     document.title = 'Курсы';
 }
 
-// замена медведя
-var bear_image = document.body.getElementsByClassName('bear-notifier-img')[0];
-if (bear_image) {
-    bear_image.src = bear_image_new_src;
+try {
+    // убирание бесполезной картинки слева
+    if (experiment) {
+        var useless_image = document.body.getElementsByClassName('if-mobile')[1];
+        useless_image.innerHTML = '';
+
+        styles += scroll_custom_style;
+    }
+
+    // замена медведя
+    var bear_image = document.body.getElementsByClassName('bear-notifier-img')[0];
+    if (bear_image) {
+        bear_image.src = bear_image_new_src;
+    }
+} catch (error) {
+    console.warn(error);
 }
 
 // убирание новых полей ввода
@@ -170,13 +181,6 @@ if (experiment) {
         }
         xp_ind.innerHTML = `${status} (${points}XP) [${b - points}]`;
     }
-}
-
-if (experiment) {
-    var useless_image = document.body.getElementsByClassName('if-mobile')[1];
-    useless_image.innerHTML = '';
-
-    styles += scroll_custom_style;
 }
 
 // загрузка стилей на страницу
