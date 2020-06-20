@@ -3,7 +3,8 @@ let url = document.URL;
 url = url.split('//')[1].split('/');
 
 // для редактирования страницы
-const button_main_style = '.yt_button_script {background-color: #be2413; border: none; border-radius: 20px; margin-left: 10px; color: white; padding: 5px 10.5px; margin-top: 7.5px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; font-weight: bold;} .yt_button_script:hover {background-color: #df3c2a;} .yt_button_script:active {background-color: #d96154;}';
+const button_main_style = '.yt_button_script {background-color: #be2413; border: none; border-radius: 20px; margin-left: 10px; color: white; padding: 5px 10.5px; margin-top: 7.5px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; font-weight: bold;} .yt_button_script:hover {background-color: #df3c2a;}';
+const button_homework_style = '.hw_button_script {background-color: #DC9D00; border: none; border-radius: 20px; margin-left: 10px; color: white; padding: 5px 10.5px; margin-top: 7.5px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; font-weight: bold;} .hw_button_script:hover {background-color: #a87f00;}';
 const bear_image_new_src = 'https://i.ibb.co/G089qYZ/bear-icon.png';
 const hm_my_style = `hr {display: none} .exercise-item {background-color: #f7f6f6; padding: 15px; /*border: 0.5px solid #E6E6E6;*/ border-radius: 20px;}
     .float-right {float: none !important}
@@ -41,10 +42,15 @@ if ((url[1] === 'mastergroup' || url[1] === 'course') && url[2] === 'lessons' &&
     if (!elem) elem = document.body.getElementsByClassName('date-container')[0];
     if (elem) {
         styles += button_main_style;
-        elem.innerHTML += '<div><button class="yt_button_script">Открыть на YouTube</button><button class="yt_button_script" style="width: 40px !important"> + </button></div>';
+        styles += button_homework_style;
+        elem.innerHTML += '<div><button class="yt_button_script">Открыть на YouTube</button><button class="yt_button_script" style="width: 40px !important"> + </button>';
+        if (document.body.getElementsByClassName('bear-notifier-img').length == 0) {
+            elem.innerHTML += '<button class="hw_button_script" style="width: 40px !important"> дз </button></div>';
+        }
 
         var button1 = document.body.getElementsByClassName('yt_button_script')[0];
         var buttonnew = document.body.getElementsByClassName('yt_button_script')[1];
+        var buttonhw = document.body.getElementsByClassName('hw_button_script')[0];
     }
 
     if (autoloading) {
@@ -56,6 +62,9 @@ if ((url[1] === 'mastergroup' || url[1] === 'course') && url[2] === 'lessons' &&
     }
     if (buttonnew) {
         buttonnew.onclick = () => yt_start_new();
+    }
+    if (buttonhw) {
+        buttonhw.onclick = () => { window.location += 'homework' };
     }
 }
 else if (url[1] === 'core' && url[2] === 'profile' && url[3] === 'edit') // блок кода для страницы Профиля/Настроек
@@ -105,20 +114,24 @@ else if ((((url[1] === 'mastergroup' || url[1] === 'course') && url[2] === 'less
 if (url[1] === 'core' && url[2] === 'hw' && url[3] === 'my') {
     document.title = 'Домашние задания';
 }
-else if (url[1] === 'mastergroup') {
+else if (url[1] === 'mastergroup' || url[1] === 'course') {
     if (url[2] === 'lessons') {
-        if (url[4] === '' || url[4] == '#') {
-            let elem = document.body.getElementsByClassName('text-container')[0].children[0];
-            document.title = elem.innerHTML;
-        }
-        else if (url[4] === 'homework') {
-            let elem = document.body.getElementsByClassName('text-container')[0].children[0];
-            elem = elem.innerHTML.split(' (')[0];
-            document.title = elem;
+        try {
+            if (url[4] === '' || url[4] == '#') {
+                let elem = document.body.getElementsByClassName('text-container')[0].children[0];
+                document.title = elem.innerHTML;
+            }
+            else if (url[4] === 'homework') {
+                let elem = document.body.getElementsByClassName('text-container')[0].children[0];
+                elem = elem.innerHTML.split(' (')[0];
+                document.title = elem;
+            }
+        } catch (error) {
+            document.title = 'Онлайн занятие';
         }
     }
     else {
-        document.title = 'Мастер-группы';
+        document.title = 'Занятия';
     }
 }
 else if (url[1] === 'teacher') {
@@ -131,9 +144,6 @@ else if (url[1] === 'core') {
     else if (url[2] === 'loyalty') {
         document.title = 'Мои достижения';
     }
-}
-else if (url[1] === 'course') {
-    document.title = 'Курсы';
 }
 
 try {
