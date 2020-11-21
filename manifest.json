@@ -1,23 +1,25 @@
 {
   "manifest_version": 2,
   "name": "Umschool extension",
-  "version": "1.1.2",
-  "description": "Small script for Umschool website",
+  "version": "2.0.0",
+  "description": "Small extension for Umschool website",
   "icons": {
     "32": "icons/32.png",
     "48": "icons/48.png",
     "128": "icons/128.png"
   },
+  "browser_action": {
+    "default_icon": "icons/128.png",
+    "default_popup": "popup/popup.html",
+    "default_title": "Umschool extemsion"
+  },
   "content_scripts": [
     {
-      "matches": [ "*://umschool.net/*" ],
-      "js": [ "injected.js" ],
-      "run_at": "document_end"
+      "matches": ["*://umschool.net/*"],
+      "js": ["injected.js"],
+      "run_at": "document_start"
     }
   ],
-  "permissions": [
-    "*://umschool.net/*",
-    "storage",
-    "activeTab"
-  ]
+  "permissions": ["tabs", "storage"],
+  "web_accessible_resources": ["dark.css"]
 }

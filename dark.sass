@@ -1,0 +1,131 @@
+$bg_color: #212121 !important
+$dark_color: #2b2b2b !important
+$white_color: white !important
+$light_color: #c2c2c2 !important
+$umschool_color: #ba830d !important
+
+body
+  background: $bg_color
+  color: $white_color
+
+h1, h2, h3, h4, h5, h6, p, span
+  color: inherit !important
+
+.gray-divider
+  background-color: $bg_color
+
+.exercise-item, .modal-content
+  background: #313131 !important
+
+.m-scrollbar
+  background: none !important
+
+.link-w-icon
+  color: $light_color
+
+.left-menu-container .left-menu-masterClasses li a
+  color: $light_color
+
+  .author
+    color: $light_color
+
+.sub-title
+  color: $light_color
+
+.lessons
+  .lessons-item .hw-status a, .lessons-title p
+    color: $light_color
+
+.secondary, .homework-exercise .title .checking
+  color: $light_color
+
+.link-w-icon:hover, .timetable-link, .form-container label, .homeworks .homework-item .homework-item__grad .checking
+  color: #e4e4e4 !important
+
+.content-section .content-container .content, header, .fr-command.fr-btn + .fr-dropdown-menu .fr-dropdown-wrapper .fr-dropdown-content ul.fr-dropdown-list li a
+  background: $dark_color
+
+.homeworks .homework-item .homework-item__text .info .secondary, .switcher-container label
+  color: $light_color
+
+.task-title
+  color: $white_color
+
+.homework-exercise .exercise-item
+  .exercise-title .number, .text-area .text-area__heading
+    color: $white_color
+
+.secondary-text, .popover .popover-body .popover-menu ul li a, .option, .fr-box.fr-basic .fr-element, ::after, ::before, .homework-exercise .exercise-item .exercise-title .exercise-text
+  color: $white_color
+
+.fr-popup .fr-input-line
+  input[type="text"], textarea
+    color: $white_color
+
+.homework-exercise .exercise-item
+  .exercise-title .exercise-text p, .answer-variants label
+    color: $white_color
+
+.form-control
+  color: $white_color
+  background: $bg_color
+
+  // &:disabled, &[readonly]
+  //   color: $white_color
+  //   background: $dark_color
+
+  &[style="background-color: #4ebc68; color: #ffffff"]
+    background-color: #4ebc68 !important
+    border: 2px solid #36964d !important
+
+  &[style="background-color: #dc3545; color: #ffffff"]
+    background-color: #dc3545 !important
+    border: 2px solid #b62e3c !important
+
+.form-container
+  input
+    &[type="text"], &[type="password"], &[type="email"]
+      color: $white_color
+      background: $bg_color
+
+  textarea
+    color: $white_color
+    background: $bg_color
+
+.custom_input, .fr-box.fr-basic .fr-wrapper, .fr-toolbar, .fr-command.fr-btn + .fr-dropdown-menu .fr-dropdown-wrapper
+  color: $white_color
+  background: $bg_color
+
+.fr-popup
+  color: $white_color
+  background: $bg_color
+
+  .fr-input-line
+    input + label, textarea + label
+      color: $white_color
+      background: $bg_color
+
+.nav-level
+  color: $white_color
+  background: $umschool_color
+
+.arrow, .mr-1, .mx-1, .link-w-icon .icon-container img, .op-03, img.fr-dii, .fr-view img.fr-dib
+  -webkit-filter: invert(1) !important
+  filter: invert(1) !important
+
+.select2-container--default .select2-selection--single, .select2-container .select2-selection--single .select2-selection__rendered, .select2-dropdown, .select2-container--default .select2-results__option[aria-selected="true"]
+  color: $white_color
+  background: $dark_color
+
+.out_of_range
+  background: $bg_color
+
+.timetable_day, .day-webs-popover, .popover .popover-body .popover-menu
+  background: $dark_color
+
+table, td, tr
+  border: 1.5px solid $white_color
+  background: $dark_color
+
+pre
+  color: #a5a5a5 !important
