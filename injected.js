@@ -37,7 +37,7 @@ function main(data) {
   document.onreadystatechange = async () => {
     const state = document.readyState;
     console.log(state);
-    if (state === 'interactive') {
+    if (state === 'complete') {
       if (urls[0] === 'lessons' || urls[1] === 'lessons') {
         ytUrl = createYTUrl();
         if (data['umsc_settings_autoloading']) {
